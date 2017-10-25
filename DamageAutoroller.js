@@ -11,9 +11,6 @@ on('chat:message', function(msg) {
                 for (let n = 0; n < roll.length; n++) {
                     output[n] = {die: roll[n].replace(/\(/g, "[[").replace(/\)/g, "]]"), type: type[n].replace(") ", "")}
                 }
-                
-                log(output);
-                let message;
                 for (let x of output) {
                     sendChat(msg.who, "&{template:npcdmg} {{damage=1}} {{dmg1=" + x.die + "}} {{dmg1flag=1}} {{dmg1type=" + x.type + "}}");
                 }
